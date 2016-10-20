@@ -1,5 +1,4 @@
 language: php
-
 matrix:
   fast_finish: true
   include:
@@ -19,7 +18,6 @@ matrix:
     env: LARAVEL_VERSION=5.1
   - php: 7
     env: LARAVEL_VERSION=5.2
-
   allow_failures:
   - php: 5.4
     env: LARAVEL_VERSION=5.0
@@ -29,34 +27,28 @@ matrix:
     env: LARAVEL_VERSION=5.0
   - php: 7
     env: LARAVEL_VERSION=5.0
-
 before_install:
-  - composer self-update
-  - composer create-project laravel/laravel:$LARAVEL_VERSION
-  - cd ./laravel
-  - composer require padosoft/test
-  - composer require padosoft/laravel-test
-  #- composer config repositories.padosoft git https://github.com/@@@vendor/@@@package_name
-  - composer require @@@vendor/@@@package_name dev-master
-  - if [[ $LARAVEL_VERSION == '5.0' ]]; then composer require mockery/mockery; fi
-  - chmod 777 -R ./
-  - ./vendor/padosoft/laravel-composer-security/tests/config/sedCommand.sh
-  - composer update
-  - ./vendor/padosoft/laravel-composer-security/tests/config/sedCommandProvider.sh
-  - rm ./.env
-  - cp ./vendor/@@@vendor/@@@package_name/tests/config/.env.dist ./.env
-  - php artisan vendor:publish
-  - rvm 1.9.3 do gem install mime-types -v 2.6.2
-  - gem install mailcatcher
-  - mailcatcher
-
+- composer self-update
+- composer create-project laravel/laravel:$LARAVEL_VERSION
+- cd ./laravel
+- composer require padosoft/test
+- composer require padosoft/laravel-test
+- composer require @@@vendor/@@@package_name dev-master
+- if [[ $LARAVEL_VERSION == '5.0' ]]; then composer require mockery/mockery; fi
+- chmod 777 -R ./
+- "./vendor/padosoft/laravel-composer-security/tests/config/sedCommand.sh"
+- composer update
+- "./vendor/padosoft/laravel-composer-security/tests/config/sedCommandProvider.sh"
+- rm ./.env
+- cp ./vendor/@@@vendor/@@@package_name/tests/config/.env.dist ./.env
+- php artisan vendor:publish
+- rvm 1.9.3 do gem install mime-types -v 2.6.2
+- gem install mailcatcher
+- mailcatcher
 script:
-  - vendor/bin/phpunit --configuration ./vendor/@@@vendor/@@@package_name/phpunit.xml.dist --testsuite Package --coverage-text --coverage-clover=coverage.clover
-
-after_script:
+- vendor/bin/phpunit --configuration ./vendor/@@@vendor/@@@package_name/phpunit.xml.dist
+  --testsuite Package --coverage-text --coverage-clover=coverage.clover
+after_script: 
 notifications:
   slack:
-    secure: lWDqhYcJ7n3I1lPsuUPjfUpZhVKMFe+wzyhsd1VMPgwB42xRqpjVNE1OOBKMXs0Htc3SHoE6WCpjfqr3CHHshhnPZo8Go0buInzHPSOOuQf8m+cyjVfYbIBzlQlyxthwOgEJeBxzON+fprm1X4f/bTtpPlWMo9ESG3DDVU2yQkQE3Bi0k2Sj+VP7VNyQtX/Ua3aRtBSxu5H0H54L6sHKXWCEPUkxCC/fJLbHCOTMnLmrEoITCRXydBladvtRP1Na6NFcyPwh5tViNmqvQPP3JBevIjgvPUwuz3pTuDBLW6jd+N9p603dBX2uIyttlBSjAF4FP6i18594VfQ2tJpAqKRELrHwHt3M3MpIbulcYZAnrz5WJf7M+HsER4TGNkkw+zuuBTHd+ImdBgQxxf8Qojy/O39RpGAZXxuBC8kJhWUpBl5noTf9aCxhOLUNpMvBF+67mHUQW3daqXpciDJlEIrLco6HhhyCkpvq0+RJ8/fL7B7mTik9N8mjRY2mkwQ6ytGhS4AVc6ICcFS4lC8FJFznG6nAFohOdayCGbGDzO2phKiXshl2zYbunkIALDYwxMRs5h64wOTfIoYvod1SiMOWbsE3J67BFg8tivRZ0/81L1VIGue4aJ10Ur0934ag4gAoMfIIJH1a2ASkF1tDIGMFW4RKP+qIjtuGVpikmLE=
-
-  #- wget https://scrutinizer-ci.com/ocular.phar
-  #- if [[ $TRAVIS_PHP_VERSION != '7.0' ]]; then php ocular.phar code-coverage:upload --access-token="93bdd4aee7a5446ac53fe372f1526b6a3d8af949ec675ab1963ca12398a4eebd" --format=php-clover coverage.clover; fi
+    secure: Eq7TLy8wPb2HM2NlsL+ItN1FYlnL4mYl4iaD8SoDdGXeKF+omKVCKrssAyDqnFLDXJLu+/nm6F4qv/0PlCx9K96DY/28qyQYsUxMUo6bjBkNpUUEszr1KiTeU50BBPw1T+x6cCe2KVFHfrEHzT+iXE4a3aZ8MCtbj6giJlyLY+rIYRVbfDRGJYTvg8FC/WJ2cbHQJ7V/lHk9yj94VSyTYfMJ7B1/1vJnYudln0KT9UWw8tIDyqjbjpyyxLuTyTiecXV28HHGF6QpbseSZynSlJqMrhmrtKAII2NTZldTJHYUHyGLsTSDyOYuBqg34tLOBQ7u2z2d9EB1KoH4HTo/KgITKsTxGFCgX4SbD/9Y7h4ikN5DD/Z58f98HFfFV59yfrqwkOSdpflVKrrD3BLldoojDXmBhtlPTA3mky6qsYalQ4KnobOi2bQBZlwsFN47RTbHzOYZZVxRnWJBh111zRjMuTaYJFGerqn4tvbbo+2VdPzVaYoFm1Y1RO08vlb1fo4f6tCnZQDPIlube1n60voIB942JQFIKfCM7BijSq8ezoUpioY+Fi4myvpZ3W/49xGn9W/4FeLLcnNhkWx1MCENAdpMSh3A3Qz7kVO0VkkqOu3OmzQ8AwXf1CSVloSwBnBL/p9RKE9LDUnA8eM8j/7LedA58iHE0ZQEoCsiOG4=

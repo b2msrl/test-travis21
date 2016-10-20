@@ -13,5 +13,6 @@ class prova
     public function dummy()
     {
         echo 'pippo';
+        echo 'pippo';
     }
 }
