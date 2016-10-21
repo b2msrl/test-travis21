@@ -30,7 +30,6 @@ script:
   --testsuite Package --coverage-text --coverage-clover=coverage.clover
 after_script: 
 notifications:
-  slack:
-    secure: Eq7TLy8wPb2HM2NlsL+ItN1FYlnL4mYl4iaD8SoDdGXeKF+omKVCKrssAyDqnFLDXJLu+/nm6F4qv/0PlCx9K96DY/28qyQYsUxMUo6bjBkNpUUEszr1KiTeU50BBPw1T+x6cCe2KVFHfrEHzT+iXE4a3aZ8MCtbj6giJlyLY+rIYRVbfDRGJYTvg8FC/WJ2cbHQJ7V/lHk9yj94VSyTYfMJ7B1/1vJnYudln0KT9UWw8tIDyqjbjpyyxLuTyTiecXV28HHGF6QpbseSZynSlJqMrhmrtKAII2NTZldTJHYUHyGLsTSDyOYuBqg34tLOBQ7u2z2d9EB1KoH4HTo/KgITKsTxGFCgX4SbD/9Y7h4ikN5DD/Z58f98HFfFV59yfrqwkOSdpflVKrrD3BLldoojDXmBhtlPTA3mky6qsYalQ4KnobOi2bQBZlwsFN47RTbHzOYZZVxRnWJBh111zRjMuTaYJFGerqn4tvbbo+2VdPzVaYoFm1Y1RO08vlb1fo4f6tCnZQDPIlube1n60voIB942JQFIKfCM7BijSq8ezoUpioY+Fi4myvpZ3W/49xGn9W/4FeLLcnNhkWx1MCENAdpMSh3A3Qz7kVO0VkkqOu3OmzQ8AwXf1CSVloSwBnBL/p9RKE9LDUnA8eM8j/7LedA58iHE0ZQEoCsiOG4=
-  email:
+   email:
+      - travis@b2m-group.mailclark.ai
       - alessandro.manneschi@gmail.com
