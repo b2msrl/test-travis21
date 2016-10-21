@@ -14,5 +14,6 @@ class prova
     {
         echo 'pippo';
         echo 'pippo';
+        return 'pippo';
     }
 }
