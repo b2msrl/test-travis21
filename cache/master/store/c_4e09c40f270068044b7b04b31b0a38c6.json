@@ -1,0 +1,38 @@
+{
+    "name": "B2msrl\\src\\prova",
+    "line": 11,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "B2msrl\\src",
+    "file": "c:\\Users\\Alessandro\\Documents\\Public\\laravel-packages\\www\\packages\\b2msrl\\test-travis21\/src\\prova.php",
+    "relative_file": null,
+    "hash": "179b4628318b23f54a9f13bc460e9bd6a5b13399",
+    "parent": null,
+    "modifiers": "Stmt_Class",
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": [],
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "dummy": {
+            "name": "dummy",
+            "line": 13,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": "1",
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}
