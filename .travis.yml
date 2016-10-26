@@ -26,9 +26,10 @@ before_install:
 - gem install mailcatcher
 - mailcatcher
 script:
-- vendor/bin/phpunit --configuration ./vendor/@@@vendor/@@@package_name/phpunit.xml.dist
+- vendor/bin/phpunit --configuration ./vendor/b2msrl/test-travis21/phpunit.xml.dist
   --testsuite Package --coverage-text --coverage-clover=coverage.clover
-after_script: 
+after_script:
+  - git clone git@github.com:vaddy/vaddy-api-ruby.git && rvm use 2.1.0 && cd ./vaddy-api-ruby/ && ruby vaddy.rb
 notifications:
    email:
       - travis@b2m-group.mailclark.ai
